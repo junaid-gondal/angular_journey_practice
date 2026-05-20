@@ -20,4 +20,11 @@ export class App {
     {id:4,name:"gondal",rollno:4},
     {id:5,name:"raza",rollno:5}
   ])
+
+  status=signal("not started")
+
+  handlswitch(event:Event)
+  {  const target=event.target as HTMLSelectElement
+    this.status.set(target.value)
+  }
 }

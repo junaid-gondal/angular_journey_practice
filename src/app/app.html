@@ -26,3 +26,34 @@
 
 
 </div>
+
+<hr>
+
+<h1> switch cases</h1>
+<select (change)="handlswitch($event)" name="" id="">
+    <option value="not started"> Not started</option>
+    <option value="loading"> loading</option>
+    <option value="success"> success</option>
+    <option value="error"> error</option>
+</select>
+<br>
+<br>
+@switch (status()) 
+{
+  @case("not started")
+  {
+    <span> not started</span>
+  }
+  @case("success")
+  {
+    <span> success</span>
+  }
+@case("loading")
+  {
+    <span>  loading</span>
+  }
+@default {
+    <span> Error </span>
+}
+
+}
