@@ -57,3 +57,51 @@
 }
 
 }
+
+<hr>
+<h1>{{nam()}}</h1>
+<input type="text" [value]="nam()" (input)="nam.set($event.target.value)">
+<hr>
+
+<h1>{{age}}</h1>
+
+<input type="text"  [(ngModel)]="age">
+<input type="text" [ngModel]="age" (ngModelChange)="age=$event">
+
+<hr>
+
+<h1>{{userdata().name}}</h1>
+<input type="text" [value]="userdata().name" (input)="updateuserdata('name',$event.target.value)">
+
+<hr>
+<h1> {{uname}}</h1>
+<input type="text" [(ngModel)]="uname">
+
+<hr>
+
+<h1> TO DO List </h1>
+<input type="text" [value]="titles()" (input)="titles.set($event.target.value)" placeholder="enter text" >
+<button (click)="addtask()"> Add Task</button>
+<ul>
+@for (task of tasks(); track task.id)
+{
+  <li><span> {{$index +1}}</span>  <span>{{task.title}}</span> <button (click)="delete(task.id)"> Delete</button> </li>
+}
+@empty
+{
+  <span> NO task Found</span>
+}
+</ul>
+
+<hr>
+
+<h2> directives</h2>
+<h1 @ngif(islogin())> welcome user</h1>
+
+<div>
+<ul *ngFor="let use of uses()">
+      <li>{{use}}</li>
+</ul>
+
+</div>
+<p [ngStyle]="{color:pcolor}"> Hello to angular </p>
